@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carmen & Manu - Boda</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Sección Portada -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">Carmen & Manu</h1>
+            <div class="hero-image"></div>
+        </div>
+    </section>
+
+    <!-- Sección Itinerario -->
+    <section class="itinerary-section">
+        <div class="container">
+            <h2 class="section-title">Itinerario</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-icon">💒</div>
+                    <div class="timeline-content">
+                        <h3>Ceremonia</h3>
+                        <p>15:00 - Iglesia de San Miguel</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon">🍾</div>
+                    <div class="timeline-content">
+                        <h3>Cóctel</h3>
+                        <p>16:30 - Jardines del Palacio</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon">🍽️</div>
+                    <div class="timeline-content">
+                        <h3>Cena</h3>
+                        <p>19:00 - Salón de Fiestas</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon">💃</div>
+                    <div class="timeline-content">
+                        <h3>Fiesta</h3>
+                        <p>22:00 - Pista de Baile</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Formulario -->
+    <section class="form-section">
+        <div class="container">
+            <div class="form-content">
+                <div class="form-info">
+                    <h2 class="section-title">Confirmar Asistencia</h2>
+                    <p class="form-subtitle">Por favor, confirma tu asistencia antes del 15 de junio</p>
+                </div>
+                <form class="wedding-form" id="weddingForm">
+                    <div class="form-group">
+                        <label for="nombre">Nombre completo *</label>
+                        <input type="text" id="nombre" name="nombre" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="telefono">Teléfono</label>
+                        <input type="tel" id="telefono" name="telefono">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="personas">Número de personas *</label>
+                        <div class="counter-group">
+                            <button type="button" class="counter-btn" onclick="decreaseCount()">-</button>
+                            <input type="number" id="personas" name="personas" value="1" min="1" max="10" readonly>
+                            <button type="button" class="counter-btn" onclick="increaseCount()">+</button>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="opciones">Tipo de invitación</label>
+                        <select id="opciones" name="opciones">
+                            <option value="familia">Familia</option>
+                            <option value="amigos">Amigos</option>
+                            <option value="compañeros">Compañeros de trabajo</option>
+                            <option value="otros">Otros</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="restricciones">Restricciones alimentarias</label>
+                        <textarea id="restricciones" name="restricciones" placeholder="Alergias, intolerancias, preferencias..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Confirmar Asistencia</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
