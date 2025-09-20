@@ -23,7 +23,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    background: #f8f6f0;
     position: relative;
     overflow: hidden;
 }
@@ -37,7 +37,7 @@ body {
     font-family: 'Playfair Display', serif;
     font-size: 4rem;
     font-weight: 700;
-    color: #2c3e50;
+    color: #8b7355;
     margin-bottom: 2rem;
     opacity: 0;
     transform: scale(0.8);
@@ -47,15 +47,26 @@ body {
 .hero-image {
     width: 400px;
     height: 300px;
-    background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80');
-    background-size: cover;
-    background-position: center;
+    background: linear-gradient(135deg, #e8dcc0 0%, #d4c4a8 50%, #c4b299 100%);
     border-radius: 20px;
     margin: 0 auto;
     opacity: 0;
     transform: scale(0.8);
     animation: fadeInScale 1s ease-out 1s forwards;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    box-shadow: 0 20px 40px rgba(139, 115, 85, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><defs><linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23f8f6f0;stop-opacity:0.8" /><stop offset="50%" style="stop-color:%23e8dcc0;stop-opacity:0.6" /><stop offset="100%" style="stop-color:%23d4c4a8;stop-opacity:0.4" /></linearGradient></defs><rect width="400" height="300" fill="url(%23grad1)"/><circle cx="100" cy="80" r="40" fill="%23c4b299" opacity="0.3"/><circle cx="300" cy="200" r="60" fill="%23e8dcc0" opacity="0.4"/><rect x="50" y="150" width="80" height="60" fill="%23d4c4a8" opacity="0.3" rx="10"/></svg>') center/cover;
+    opacity: 0.7;
 }
 
 @keyframes fadeInScale {
@@ -69,7 +80,7 @@ body {
 .itinerary-section {
     min-height: 100vh;
     padding: 80px 0;
-    background: #fff;
+    background: #f5f3f0;
     position: relative;
 }
 
@@ -78,7 +89,7 @@ body {
     font-size: 3rem;
     text-align: center;
     margin-bottom: 4rem;
-    color: #2c3e50;
+    color: #8b7355;
     opacity: 0;
     transform: translateY(30px);
     transition: all 0.8s ease;
@@ -103,7 +114,7 @@ body {
     transform: translateX(-50%);
     width: 2px;
     height: 100%;
-    background: linear-gradient(to bottom, #4ecdc4, #44a08d);
+    background: linear-gradient(to bottom, #c4b299, #d4c4a8);
 }
 
 .timeline-item {
@@ -136,25 +147,25 @@ body {
     transform: translateX(-50%);
     width: 60px;
     height: 60px;
-    background: #4ecdc4;
+    background: #d4c4a8;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.5rem;
     z-index: 2;
-    box-shadow: 0 4px 15px rgba(78, 205, 196, 0.3);
+    box-shadow: 0 4px 15px rgba(212, 196, 168, 0.3);
 }
 
 .timeline-content h3 {
     font-family: 'Playfair Display', serif;
     font-size: 1.5rem;
-    color: #2c3e50;
+    color: #8b7355;
     margin-bottom: 0.5rem;
 }
 
 .timeline-content p {
-    color: #666;
+    color: #a0957a;
     font-size: 1.1rem;
 }
 
@@ -192,8 +203,8 @@ body {
 .form-section {
     min-height: 100vh;
     padding: 80px 0;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
+    background: #e8dcc0;
+    color: #8b7355;
     position: relative;
 }
 
@@ -204,10 +215,8 @@ body {
     left: 0;
     width: 50%;
     height: 100%;
-    background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80');
-    background-size: cover;
-    background-position: center;
-    opacity: 0.3;
+    background: linear-gradient(135deg, #d4c4a8 0%, #c4b299 50%, #b8a68a 100%);
+    opacity: 0.8;
     z-index: 1;
 }
 
@@ -256,7 +265,7 @@ body {
     display: block;
     margin-bottom: 0.5rem;
     font-weight: 600;
-    color: white;
+    color: #8b7355;
 }
 
 .form-group input,
@@ -267,8 +276,8 @@ body {
     border: none;
     border-radius: 8px;
     font-size: 1rem;
-    background: rgba(255, 255, 255, 0.9);
-    color: #333;
+    background: rgba(248, 246, 240, 0.9);
+    color: #8b7355;
     transition: all 0.3s ease;
 }
 
@@ -276,8 +285,8 @@ body {
 .form-group select:focus,
 .form-group textarea:focus {
     outline: none;
-    background: white;
-    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+    background: #f8f6f0;
+    box-shadow: 0 0 0 3px rgba(212, 196, 168, 0.3);
 }
 
 .counter-group {
@@ -291,29 +300,29 @@ body {
     height: 40px;
     border: none;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.2);
-    color: white;
+    background: rgba(212, 196, 168, 0.3);
+    color: #8b7355;
     font-size: 1.2rem;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
 .counter-btn:hover {
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(212, 196, 168, 0.5);
     transform: scale(1.1);
 }
 
 .counter-group input {
     width: 80px;
     text-align: center;
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(248, 246, 240, 0.9);
 }
 
 .submit-btn {
     width: 100%;
     padding: 15px 30px;
-    background: #4ecdc4;
-    color: white;
+    background: #c4b299;
+    color: #f8f6f0;
     border: none;
     border-radius: 8px;
     font-size: 1.1rem;
@@ -324,9 +333,9 @@ body {
 }
 
 .submit-btn:hover {
-    background: #44a08d;
+    background: #b8a68a;
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(78, 205, 196, 0.4);
+    box-shadow: 0 5px 15px rgba(196, 178, 153, 0.4);
 }
 
 /* Responsive para móvil */
