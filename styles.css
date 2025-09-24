@@ -23,9 +23,53 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(rgba(248, 246, 240, 0.2), rgba(248, 246, 240, 0.2)), url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=800&fit=crop&crop=center&auto=format&q=80') center/cover no-repeat;
+    background: 
+        linear-gradient(rgba(248, 246, 240, 0.3), rgba(248, 246, 240, 0.3)),
+        linear-gradient(135deg, #f5f2e8 0%, #e8e0d0 20%, #d4c4a8 40%, #c4b299 60%, #8b7355 80%, #2d5016 100%);
     position: relative;
     overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        /* Agua */
+        linear-gradient(90deg, transparent 0%, #007acc 20%, #42a5f5 50%, #007acc 80%, transparent 100%),
+        /* Césped */
+        linear-gradient(180deg, transparent 0%, #8bc34a 70%, #689f38 100%),
+        /* Camino dorado */
+        linear-gradient(45deg, transparent 0%, #ffd700 30%, #ffeb3b 50%, #ffd700 70%, transparent 100%);
+    background-size: 100% 20%, 100% 30%, 100% 15%;
+    background-position: 0 60%, 0 70%, 0 85%;
+    background-repeat: no-repeat;
+    opacity: 0.8;
+    z-index: 1;
+}
+
+.hero-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        /* Árbol grande izquierda */
+        radial-gradient(circle at 20% 40%, #4caf50 0%, #388e3c 30%, #2e7d32 60%, transparent 70%),
+        /* Árbol pequeño derecha */
+        radial-gradient(circle at 80% 50%, #66bb6a 0%, #4caf50 40%, #388e3c 70%, transparent 80%),
+        /* Edificio */
+        linear-gradient(90deg, transparent 0%, #e3f2fd 75%, #bbdefb 85%, transparent 100%);
+    background-size: 30% 40%, 20% 30%, 25% 20%;
+    background-position: 0 30%, 100% 40%, 100% 60%;
+    background-repeat: no-repeat;
+    opacity: 0.9;
+    z-index: 1;
 }
 
 .hero-content {
