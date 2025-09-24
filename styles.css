@@ -23,7 +23,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #f8f6f0;
+    background: linear-gradient(135deg, #f5f2e8 0%, #e8e0d0 30%, #d4c4a8 70%, #c4b299 100%);
     position: relative;
     overflow: hidden;
 }
@@ -37,23 +37,24 @@ body {
     font-family: 'Playfair Display', serif;
     font-size: 4rem;
     font-weight: 700;
-    color: #8b7355;
+    color: #2d5016;
     margin-bottom: 2rem;
     opacity: 0;
     transform: scale(0.8);
     animation: fadeInScale 1s ease-out 0.5s forwards;
+    text-shadow: 0 2px 4px rgba(45, 80, 22, 0.1);
 }
 
 .hero-image {
     width: 400px;
     height: 300px;
-    background: linear-gradient(135deg, #e8dcc0 0%, #d4c4a8 50%, #c4b299 100%);
+    background: linear-gradient(135deg, #4a7c59 0%, #6b8e4e 30%, #8fbc8f 60%, #b8d4b8 100%);
     border-radius: 20px;
     margin: 0 auto;
     opacity: 0;
     transform: scale(0.8);
     animation: fadeInScale 1s ease-out 1s forwards;
-    box-shadow: 0 20px 40px rgba(139, 115, 85, 0.2);
+    box-shadow: 0 20px 40px rgba(45, 80, 22, 0.3);
     position: relative;
     overflow: hidden;
 }
@@ -65,8 +66,8 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><defs><linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23f8f6f0;stop-opacity:0.8" /><stop offset="50%" style="stop-color:%23e8dcc0;stop-opacity:0.6" /><stop offset="100%" style="stop-color:%23d4c4a8;stop-opacity:0.4" /></linearGradient></defs><rect width="400" height="300" fill="url(%23grad1)"/><circle cx="100" cy="80" r="40" fill="%23c4b299" opacity="0.3"/><circle cx="300" cy="200" r="60" fill="%23e8dcc0" opacity="0.4"/><rect x="50" y="150" width="80" height="60" fill="%23d4c4a8" opacity="0.3" rx="10"/></svg>') center/cover;
-    opacity: 0.7;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><defs><linearGradient id="water" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:%23007acc;stop-opacity:0.6" /><stop offset="100%" style="stop-color:%2342a5f5;stop-opacity:0.8" /></linearGradient><linearGradient id="trees" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23228b22;stop-opacity:0.8" /><stop offset="50%" style="stop-color:%2332cd32;stop-opacity:0.6" /><stop offset="100%" style="stop-color:%2390ee90;stop-opacity:0.4" /></linearGradient><linearGradient id="path" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:%23ffd700;stop-opacity:0.7" /><stop offset="100%" style="stop-color:%23f0e68c;stop-opacity:0.5" /></linearGradient></defs><rect width="400" height="300" fill="url(%23trees)"/><rect x="0" y="200" width="400" height="60" fill="url(%23water)"/><rect x="0" y="260" width="400" height="40" fill="url(%23path)"/><circle cx="80" cy="120" r="45" fill="%22%23228b22" opacity="0.9"/><circle cx="320" cy="100" r="35" fill="%22%23228b22" opacity="0.8"/><rect x="280" y="80" width="60" height="40" fill="%23b0c4de" opacity="0.8" rx="5"/></svg>') center/cover;
+    opacity: 0.8;
 }
 
 @keyframes fadeInScale {
