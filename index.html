@@ -5,44 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carmen & Manu - Boda</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400;600&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="typography/gelion.css">
 </head>
 <body>
+    <!-- Imagen fija a la izquierda -->
+    <div class="fixed-left-image" id="left-image"></div>
+
     <!-- Sección Portada -->
-    <section class="hero-section">
-        <div class="hero-content">
-            <h1 class="hero-title">Carmen & Manu</h1>
-            <div class="hero-image"></div>
+    <section class="hero-section" id="hero">
+        <div class="hero-content-wrapper">
+            <div class="hero-content">
+                <div class="wedding-info">
+                    <h2 class="wedding-announcement">¡Nos casamos!</h2>
+                    <h1 class="wedding-names">Carmen & Manu</h1>
+                    <p class="wedding-date">13:00 Sábado, 18 de Abril de 2026</p>
+                    <p class="wedding-location">Aguas del Pino, El Rompido, Huelva</p>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Sección Itinerario -->
-    <section class="itinerary-section">
+    <section class="itinerary-section" id="itinerary">
         <div class="container">
             <h2 class="section-title">Itinerario</h2>
             <div class="timeline">
-                <div class="timeline-item">
+                <div class="timeline-item" data-section="ceremony" data-bg="ceremony-bg">
                     <div class="timeline-icon">💒</div>
                     <div class="timeline-content">
                         <h3>Ceremonia</h3>
                         <p>15:00 - Iglesia de San Miguel</p>
                     </div>
                 </div>
-                <div class="timeline-item">
+                <div class="timeline-item" data-section="cocktail" data-bg="cocktail-bg">
                     <div class="timeline-icon">🍾</div>
                     <div class="timeline-content">
                         <h3>Cóctel</h3>
                         <p>16:30 - Jardines del Palacio</p>
                     </div>
                 </div>
-                <div class="timeline-item">
+                <div class="timeline-item" data-section="dinner" data-bg="dinner-bg">
                     <div class="timeline-icon">🍽️</div>
                     <div class="timeline-content">
                         <h3>Cena</h3>
                         <p>19:00 - Salón de Fiestas</p>
                     </div>
                 </div>
-                <div class="timeline-item">
+                <div class="timeline-item" data-section="party" data-bg="party-bg">
                     <div class="timeline-icon">💃</div>
                     <div class="timeline-content">
                         <h3>Fiesta</h3>
@@ -54,7 +64,7 @@
     </section>
 
     <!-- Sección Formulario -->
-    <section class="form-section">
+    <section class="form-section" id="contact">
         <div class="container">
             <div class="form-content">
                 <div class="form-info">
@@ -103,6 +113,70 @@
     </section>
 
     <script src="script.js"></script>
+    <script>
+        // Sistema de timeline con colores
+        const leftImage = document.getElementById('left-image');
+        
+        // Fondos para cada item
+        const fondos = {
+            'hero-bg': 'url("bg.png")',
+            'ceremony-bg': 'url("bg2.png")',
+            'cocktail-bg': 'url("bg3.png")', 
+            'dinner-bg': 'url("bg4.png")',
+            'party-bg': 'url("bg2.png")',
+            'contact-bg': 'url("bg3.png")'
+        };
+        
+        // Función para activar item
+        function activarItem(bgId) {
+            // Quitar active de todos
+            document.querySelectorAll('.timeline-item').forEach(ti => {
+                ti.classList.remove('active');
+            });
+            
+            // Activar el correspondiente
+            const targetItem = document.querySelector(`[data-bg="${bgId}"]`);
+            if (targetItem) {
+                targetItem.classList.add('active');
+            }
+            
+            // Cambiar fondo
+            if (leftImage && fondos[bgId]) {
+                leftImage.style.background = fondos[bgId];
+                leftImage.style.backgroundSize = 'cover';
+                leftImage.style.backgroundPosition = 'center';
+            }
+        }
+        
+        // Click en timeline items
+        document.querySelectorAll('.timeline-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const bgId = this.getAttribute('data-bg');
+                activarItem(bgId);
+            });
+        });
+        
+        // Scroll detection
+        window.addEventListener('scroll', function() {
+            const scrollTop = window.pageYOffset;
+            const windowHeight = window.innerHeight;
+            
+            // Detectar sección visible
+            if (scrollTop < windowHeight * 0.5) {
+                activarItem('hero-bg');
+            } else if (scrollTop < windowHeight * 1.5) {
+                activarItem('ceremony-bg');
+            } else if (scrollTop < windowHeight * 2.5) {
+                activarItem('cocktail-bg');
+            } else if (scrollTop < windowHeight * 3.5) {
+                activarItem('dinner-bg');
+            } else if (scrollTop < windowHeight * 4.5) {
+                activarItem('party-bg');
+            } else {
+                activarItem('contact-bg');
+            }
+        });
+    </script>
 </body>
 </html>
 <!-- Force rebuild -->

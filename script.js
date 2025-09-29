@@ -43,6 +43,18 @@ document.addEventListener('DOMContentLoaded', function() {
     // Activar animaciones iniciales
     activateAnimations();
 
+    // Test básico
+    console.log('JavaScript cargado');
+    
+    // Test automático cada 2 segundos
+    setInterval(() => {
+        const leftImage = document.getElementById('left-image');
+        if (leftImage) {
+            leftImage.style.background = '#ff6b6b';
+            console.log('Fondo cambiado a rojo');
+        }
+    }, 2000);
+
     // Contador de personas
     window.increaseCount = function() {
         const input = document.getElementById('personas');

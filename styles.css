@@ -5,7 +5,7 @@
 }
 
 body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Gelion', 'Open Sans', sans-serif;
     line-height: 1.6;
     color: #333;
     overflow-x: hidden;
@@ -17,64 +17,116 @@ body {
     padding: 0 20px;
 }
 
+/* Imagen fija a la izquierda */
+.fixed-left-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100vh;
+    z-index: 1;
+    overflow: hidden;
+    background: url('bg.png');
+    background-size: cover;
+    background-position: center;
+    transition: background 1s ease;
+}
+
 /* Sección Hero */
 .hero-section {
     height: 100vh;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    background: 
-        linear-gradient(rgba(248, 246, 240, 0.3), rgba(248, 246, 240, 0.3)),
-        linear-gradient(135deg, #f5f2e8 0%, #e8e0d0 20%, #d4c4a8 40%, #c4b299 60%, #8b7355 80%, #2d5016 100%);
     position: relative;
     overflow: hidden;
 }
 
-.hero-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: 
-        /* Agua */
-        linear-gradient(90deg, transparent 0%, #007acc 20%, #42a5f5 50%, #007acc 80%, transparent 100%),
-        /* Césped */
-        linear-gradient(180deg, transparent 0%, #8bc34a 70%, #689f38 100%),
-        /* Camino dorado */
-        linear-gradient(45deg, transparent 0%, #ffd700 30%, #ffeb3b 50%, #ffd700 70%, transparent 100%);
-    background-size: 100% 20%, 100% 30%, 100% 15%;
-    background-position: 0 60%, 0 70%, 0 85%;
-    background-repeat: no-repeat;
-    opacity: 0.8;
-    z-index: 1;
+.hero-content-wrapper {
+    flex: 1;
+    margin-left: 50%; /* Para compensar la imagen fija */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
 }
 
-.hero-section::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: 
-        /* Árbol grande izquierda */
-        radial-gradient(circle at 20% 40%, #4caf50 0%, #388e3c 30%, #2e7d32 60%, transparent 70%),
-        /* Árbol pequeño derecha */
-        radial-gradient(circle at 80% 50%, #66bb6a 0%, #4caf50 40%, #388e3c 70%, transparent 80%),
-        /* Edificio */
-        linear-gradient(90deg, transparent 0%, #e3f2fd 75%, #bbdefb 85%, transparent 100%);
-    background-size: 30% 40%, 20% 30%, 25% 20%;
-    background-position: 0 30%, 100% 40%, 100% 60%;
-    background-repeat: no-repeat;
-    opacity: 0.9;
-    z-index: 1;
-}
 
 .hero-content {
     text-align: center;
     z-index: 2;
+    max-width: 500px;
+}
+
+.wedding-info {
+    text-align: center;
+    color: #2d5016;
+}
+
+.wedding-announcement {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #8b7355;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1.2s ease-out 0.3s forwards;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+}
+
+.wedding-announcement::before,
+.wedding-announcement::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 30px;
+    height: 2px;
+    background: #8b7355;
+    transform: translateY(-50%);
+}
+
+.wedding-announcement::before {
+    left: -40px;
+}
+
+.wedding-announcement::after {
+    right: -40px;
+}
+
+.wedding-names {
+    font-family: 'Dancing Script', cursive;
+    font-size: 40pt;
+    font-weight: 400;
+    color: #2d5016;
+    margin-bottom: 2rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1.2s ease-out 0.6s forwards;
+    line-height: 1.1;
+}
+
+.wedding-date {
+    font-family: 'Gelion', 'Open Sans', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: #8b7355;
+    margin-bottom: 1rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1.2s ease-out 0.9s forwards;
+    letter-spacing: 0.5px;
+}
+
+.wedding-location {
+    font-family: 'Gelion', 'Open Sans', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: #2d5016;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1.2s ease-out 1.2s forwards;
+    font-style: italic;
 }
 
 .hero-title {
@@ -123,12 +175,24 @@ body {
     }
 }
 
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* Sección Itinerario */
 .itinerary-section {
     min-height: 100vh;
     padding: 80px 0;
-    background: #f5f3f0;
+    margin-left: 50%; /* Para compensar la imagen fija */
     position: relative;
+}
+
+.timeline {
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .section-title {
@@ -167,24 +231,52 @@ body {
 .timeline-item {
     position: relative;
     margin-bottom: 3rem;
-    opacity: 0;
+    opacity: 0.5;
     transform: translateY(30px);
     transition: all 0.8s ease;
+    cursor: pointer;
+    padding: 20px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    pointer-events: auto;
+    z-index: 10;
+}
+
+.timeline-item:hover {
+    opacity: 0.8;
+    transform: translateY(20px);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.timeline-item.active {
+    opacity: 1;
+    transform: translateY(0);
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .timeline-item.visible {
-    opacity: 1;
+    opacity: 0.5;
     transform: translateY(0);
 }
 
-.timeline-item:nth-child(odd) {
-    text-align: right;
-    padding-right: 60%;
+.timeline-item {
+    text-align: left;
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-.timeline-item:nth-child(even) {
-    text-align: left;
-    padding-left: 60%;
+.timeline-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateX(10px);
 }
 
 .timeline-icon {
@@ -250,28 +342,18 @@ body {
 .form-section {
     min-height: 100vh;
     padding: 80px 0;
-    background: #e8dcc0;
+    margin-left: 50%; /* Para compensar la imagen fija */
     color: #8b7355;
     position: relative;
 }
 
-.form-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 50%;
-    height: 100%;
-    background: linear-gradient(135deg, #d4c4a8 0%, #c4b299 50%, #b8a68a 100%);
-    opacity: 0.8;
-    z-index: 1;
-}
-
 .form-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: start;
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: 0 auto;
+    gap: 2rem;
+    align-items: center;
     position: relative;
     z-index: 2;
 }
